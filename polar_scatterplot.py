@@ -17,7 +17,7 @@ df = pd.read_csv('/content/raw data.csv')
 
 # Step 2: Convert aspect from degrees to radians (required for polar plots)
 # Matplotlib polar plots expect angles in radians
-aspects_rad = np.radians(df['Aspect (°)'])
+aspects_rad = np.radians(df['Aspect'])
 
 # Step 3: Create the polar plot
 fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
@@ -26,11 +26,11 @@ fig, ax = plt.subplots(figsize=(10, 10), subplot_kw=dict(projection='polar'))
 # Each species will have a different color and marker
 
 # Plot Fir trees
-ax.scatter(aspects_rad, df['# Fir'],
-          c='green', s=60, alpha=0.7, label='Douglass fir', marker='o')
+ax.scatter(aspects_rad, df['# Douglas fir'],
+          c='green', s=60, alpha=0.7, label='Douglas fir', marker='o')
 
 # Plot Pine trees
-ax.scatter(aspects_rad, df['# Pine'],
+ax.scatter(aspects_rad, df['# Ponderosa pine'],
           c='blue', s=60, alpha=0.7, label='Ponderosa pine', marker='o')
 
 # Plot Juniper trees
